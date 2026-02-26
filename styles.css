@@ -119,9 +119,9 @@ a:hover {
 }
 
 .logo-icon {
-    width: 28px;
-    height: 28px;
-    color: var(--accent);
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
 .logo-text {
