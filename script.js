@@ -185,4 +185,145 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Portfolio Carousel ---
+    const track = document.getElementById('portfolio-track');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dotsContainer = document.getElementById('carousel-dots');
+    const carousel = document.getElementById('portfolio-carousel');
+
+    if (track && prevBtn && nextBtn) {
+        const cards = track.querySelectorAll('.portfolio-card');
+        const totalCards = cards.length;
+        let autoPlayTimer = null;
+        let isHovered = false;
+
+        function getStepDistance() {
+            if (cards.length === 0) return 320;
+            const firstCard = cards[0];
+            const gap = parseFloat(window.getComputedStyle(track).gap) || 24;
+            return firstCard.offsetWidth + gap;
+        }
+
+        function buildDots() {
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            cards.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+                dot.setAttribute('role', 'tab');
+                dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+                dot.addEventListener('click', () => {
+                    const step = getStepDistance();
+                    track.scrollTo({ left: idx * step, behavior: 'smooth' });
+                    updateActiveDot(idx);
+                    resetAutoPlay();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateActiveDot(index) {
+            if (!dotsContainer) return;
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, idx) => {
+                const isActive = idx === index;
+                dot.classList.toggle('active', isActive);
+                dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+        }
+
+        let scrollTimeout;
+        track.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const step = getStepDistance();
+                const activeIndex = Math.round(track.scrollLeft / step);
+                updateActiveDot(Math.min(Math.max(0, activeIndex), totalCards - 1));
+            }, 60);
+        }, { passive: true });
+
+        function scrollNext() {
+            const step = getStepDistance();
+            const maxScroll = track.scrollWidth - track.clientWidth - 10;
+            if (track.scrollLeft >= maxScroll) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: step, behavior: 'smooth' });
+            }
+        }
+
+        function scrollPrev() {
+            const step = getStepDistance();
+            if (track.scrollLeft <= 10) {
+                track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: -step, behavior: 'smooth' });
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            scrollNext();
+            resetAutoPlay();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            scrollPrev();
+            resetAutoPlay();
+        });
+
+        if (carousel) {
+            carousel.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    scrollNext();
+                    resetAutoPlay();
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    scrollPrev();
+                    resetAutoPlay();
+                }
+            });
+
+            carousel.addEventListener('mouseenter', () => { isHovered = true; });
+            carousel.addEventListener('mouseleave', () => { isHovered = false; });
+            carousel.addEventListener('focusin', () => { isHovered = true; });
+            carousel.addEventListener('focusout', () => { isHovered = false; });
+            carousel.addEventListener('touchstart', () => { isHovered = true; }, { passive: true });
+            carousel.addEventListener('touchend', () => { isHovered = false; resetAutoPlay(); }, { passive: true });
+        }
+
+        function startAutoPlay() {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) return;
+            stopAutoPlay();
+            autoPlayTimer = setInterval(() => {
+                if (!isHovered) {
+                    scrollNext();
+                }
+            }, 4000);
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        }
+
+        function resetAutoPlay() {
+            stopAutoPlay();
+            startAutoPlay();
+        }
+
+        buildDots();
+        startAutoPlay();
+
+        window.addEventListener('resize', () => {
+            const step = getStepDistance();
+            const activeIndex = Math.round(track.scrollLeft / step);
+            updateActiveDot(Math.min(Math.max(0, activeIndex), totalCards - 1));
+        }, { passive: true });
+    }
 });

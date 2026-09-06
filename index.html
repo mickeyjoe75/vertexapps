@@ -34,6 +34,7 @@
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
                 <li><a href="#expertise" class="nav-link">Expertise</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#contact" class="nav-link nav-link-cta">Get in Touch</a></li>
@@ -201,8 +202,199 @@
         </div>
     </section>
 
+    <!-- Client Portfolio Section -->
+    <section class="section" id="portfolio">
+        <div class="container">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span>Client Portfolio</span>
+            </div>
+            <div class="portfolio-header">
+                <div>
+                    <h2 class="section-title">Featured <span class="gradient-text">Clients &amp; Projects</span></h2>
+                    <p class="portfolio-subtitle">Proven track record delivering mission-critical data pipelines, advanced analytics, and custom software for industry leaders.</p>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="carousel-prev" aria-label="Previous client project">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="carousel-btn" id="carousel-next" aria-label="Next client project">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="portfolio-carousel" id="portfolio-carousel" tabindex="0" aria-label="Client portfolio carousel" role="region">
+                <div class="portfolio-track" id="portfolio-track">
+                    <!-- 1. Agility Forex -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">AF</div>
+                            <span class="portfolio-sector">FinTech &amp; FX</span>
+                        </div>
+                        <h3>Agility Forex</h3>
+                        <p>Automated Mark-to-Market (MTM) risk derivations and real-time Bank of Canada (BOC) &amp; BMO currency analytics in Tableau Cloud.</p>
+                        <div class="portfolio-tags">
+                            <span>Tableau Cloud</span><span>Python</span><span>REST APIs</span><span>Financial Risk</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. OurNet Energy -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">OE</div>
+                            <span class="portfolio-sector">CleanTech &amp; Grid AI</span>
+                        </div>
+                        <h3>OurNet Energy</h3>
+                        <p>Smart Grid Energy Management System (EMS), UK solar power generation forecasting, and battery storage (BESS) dispatch models in Snowflake.</p>
+                        <div class="portfolio-tags">
+                            <span>Snowflake</span><span>Kpler API</span><span>Python</span><span>Streamlit</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. Sony PlayStation -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">PS</div>
+                            <span class="portfolio-sector">Gaming &amp; Media</span>
+                        </div>
+                        <h3>Sony PlayStation</h3>
+                        <p>Global Planning Tool (GPT) enterprise financial dashboards integrating Anaplan models for the PlayStation global finance division.</p>
+                        <div class="portfolio-tags">
+                            <span>Tableau</span><span>Anaplan</span><span>Enterprise BI</span><span>Finance MI</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. Jaguar Land Rover -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">JLR</div>
+                            <span class="portfolio-sector">Automotive</span>
+                        </div>
+                        <h3>Jaguar Land Rover</h3>
+                        <p>Cloud-native analytics and executive visualisations for the Digital Creation team, transforming manufacturing and operational intelligence.</p>
+                        <div class="portfolio-tags">
+                            <span>GCP</span><span>Tableau</span><span>BigQuery</span><span>Digital Creation</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Thames Water -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">TW</div>
+                            <span class="portfolio-sector">Utilities</span>
+                        </div>
+                        <h3>Thames Water</h3>
+                        <p>Real-Time Command Centre BI and operational workforce forecasting, generating £2M in direct OPEX efficiency savings.</p>
+                        <div class="portfolio-tags">
+                            <span>BI &amp; WFM</span><span>SQL Server</span><span>Predictive Models</span>
+                        </div>
+                    </div>
+
+                    <!-- 6. XE.com (Euronet) -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">XE</div>
+                            <span class="portfolio-sector">Global Payments</span>
+                        </div>
+                        <h3>XE.com (Euronet)</h3>
+                        <p>Cloud data warehouse modernisation and enterprise BI reporting across multi-currency support, marketing, and cross-border payments.</p>
+                        <div class="portfolio-tags">
+                            <span>Tableau</span><span>AWS Redshift</span><span>Athena</span><span>Power BI</span>
+                        </div>
+                    </div>
+
+                    <!-- 7. Feedback Ferret -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">FF</div>
+                            <span class="portfolio-sector">Customer Intelligence</span>
+                        </div>
+                        <h3>Feedback Ferret</h3>
+                        <p>Headed Data &amp; Analytics function delivering NLP text analytics, Voice of Customer (VoC) insight pipelines, and semantic feedback mining.</p>
+                        <div class="portfolio-tags">
+                            <span>Text Mining</span><span>NLP Analytics</span><span>Data Strategy</span>
+                        </div>
+                    </div>
+
+                    <!-- 8. DHU NHS 111 -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">NHS</div>
+                            <span class="portfolio-sector">Healthcare / NHS</span>
+                        </div>
+                        <h3>DHU NHS 111</h3>
+                        <p>Mission-critical telephony data warehousing migration from Mitel to NICE CXOne using REST API ETL and real-time triage reporting.</p>
+                        <div class="portfolio-tags">
+                            <span>NICE CXOne</span><span>SSIS</span><span>REST APIs</span><span>SQL Server</span>
+                        </div>
+                    </div>
+
+                    <!-- 9. Vodafone Automotive -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">VA</div>
+                            <span class="portfolio-sector">Telematics &amp; IoT</span>
+                        </div>
+                        <h3>Vodafone Automotive</h3>
+                        <p>Telematics and connected vehicle operational analytics, building robust capacity models and interactive BI dashboards.</p>
+                        <div class="portfolio-tags">
+                            <span>Tableau</span><span>Power BI</span><span>Capacity Planning</span><span>IoT Data</span>
+                        </div>
+                    </div>
+
+                    <!-- 10. Danske Bank -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">DB</div>
+                            <span class="portfolio-sector">Banking &amp; Finance</span>
+                        </div>
+                        <h3>Danske Bank</h3>
+                        <p>Consolidated mortgage department reporting across Salesforce, IBM DB2, Alteryx, and SQL Server into unified Tableau analytics suites.</p>
+                        <div class="portfolio-tags">
+                            <span>Salesforce</span><span>Tableau</span><span>IBM DB2</span><span>SQL Server</span>
+                        </div>
+                    </div>
+
+                    <!-- 11. ASOS.com -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">AS</div>
+                            <span class="portfolio-sector">E-Commerce Retail</span>
+                        </div>
+                        <h3>ASOS.com</h3>
+                        <p>High-volume retail customer support capacity forecasting, workload simulation, and real-time workforce management intelligence.</p>
+                        <div class="portfolio-tags">
+                            <span>Retail Analytics</span><span>WFM</span><span>Real-Time BI</span>
+                        </div>
+                    </div>
+
+                    <!-- 12. Vistra Group -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">VG</div>
+                            <span class="portfolio-sector">Corporate Governance</span>
+                        </div>
+                        <h3>Vistra Group</h3>
+                        <p>Global digital transformation program architecting enterprise reporting and data integration across multi-jurisdictional funds.</p>
+                        <div class="portfolio-tags">
+                            <span>Tableau</span><span>Informatica</span><span>Data Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Pagination Dots -->
+            <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Client portfolio pagination"></div>
+        </div>
+    </section>
+
     <!-- Expertise Section -->
-    <section class="section" id="expertise">
+    <section class="section section-alt" id="expertise">
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
@@ -350,7 +542,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="section section-alt" id="experience">
+    <section class="section" id="experience">
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
@@ -423,7 +615,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="section" id="contact">
+    <section class="section section-alt" id="contact">
         <div class="container">
             <div class="section-label">
                 <span class="label-line"></span>
@@ -531,6 +723,7 @@
                 <nav class="footer-nav">
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
                     <a href="#expertise">Expertise</a>
                     <a href="#experience">Experience</a>
                     <a href="#contact">Contact</a>
